@@ -120,3 +120,22 @@ pos = dict(zip(nodelist, locations))
 fig, ax = plt.subplots(1, 1, figsize=(4, 4))
 nx.draw(g, pos=pos, ax=ax)
 ax.set(title="My spectral")
+
+#%%
+
+B = np.array([[0.8, 0, 0], [0, 0.8, 0], [0, 0, 0.8]])
+A = sbm([10, 10, 10], B)
+heatmap(A)
+degrees = np.sum(A, axis=0)
+D = np.diag(degrees)
+L = D - A
+evals, evecs = eig(L)
+
+fig, axs = plt.subplots(3, 1, figsize=(8, 12))
+for i in range(3):
+    ax = axs[i]
+    sns.scatterplot(y=evecs[:, i], x=np.arange(len(evecs[:, i])), ax=ax)
+    ax.set(xticks=[], yticks=[0])
+axs[-1].set(xlabel=("Index"))
+axs[1].set(ylabel=("Eigenvector element"))
+

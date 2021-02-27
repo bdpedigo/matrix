@@ -176,3 +176,13 @@ plt.figure()
 clean_scatterplot(range(n_verts), vecs[:, 3])
 
 #%%
+degrees = np.sum(A, axis=1)
+D = np.diag(degrees)
+D_inv = np.diag(1 / degrees)
+P = D_inv @ A
+np.linalg.eig(P)
+
+#%%
+D_neg_half = np.diag(1 / np.sqrt(degrees))
+DAD = D_neg_half @ A @ D_neg_half
+np.linalg.eig(DAD)
