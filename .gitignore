@@ -115,3 +115,6 @@ dmypy.json
 
 # data
 /data/hemibrain
+
+# results
+/results
