@@ -112,3 +112,9 @@ dmypy.json
 
 # misc
 .vscode/
+
+# data
+/data/hemibrain
+
+# results
+/results
