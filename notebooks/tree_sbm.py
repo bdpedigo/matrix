@@ -74,3 +74,22 @@ plot_dendrogram(left_ax, lt, orientation="h")
 
 top_ax = divider.append_axes("top", size="10%", pad=0, sharex=ax)
 plot_dendrogram(top_ax, lt, orientation="v")
+
+#%%
+adjacency, labels = sbm(ns, B, return_labels=True)
+lt = LeidenTree(trials=5, verbose=False, max_levels=2)
+lt.fit(adjacency)
+lt.estimate_parameters(adjacency)
+
+#%%
+A = np.arange(8 * 8).reshape((8, 8))
+
+first_mask = np.zeros((8,8), dtype=bool)
+first_mask[:4, :4] = True
+
+mask = np.zeros((4, 4), dtype=bool)
+mask[:2, :2] = True
+
+# A[first_mask[mask]] = 0
+
+# A
