@@ -116,7 +116,7 @@ stashfig("model-explanation")
 # at each trial.
 
 #%%
-n_per_leaf_comm = 50
+n_per_leaf_comm = 200
 
 lvl1_labels = np.array(2 * n_per_leaf_comm * [0] + 2 * n_per_leaf_comm * [1])
 
@@ -302,3 +302,9 @@ handles = [
     mpatches.Patch(facecolor=colors[1], label="ER"),
 ]
 ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.6, 1))
+
+#%%
+n = 2
+m = 3
+A = np.arange(n*n*m).reshape((n, n, m))
+A.reshape((n, n*m), order='F')
